@@ -19,6 +19,13 @@ def dashboard(request):
         if len(request.FILES) == 0:
             message = "No file found!!"
             return render(request,'ui/index.html', {"message": message})
+
+        # print(request.FILES, request.FILES.get('document'))
+        filename = str(request.FILES.get('document'))
+        print(filename)
+        if filename[-4:] != '.csv':
+            message = "Only .csv files allowed !!"
+            return render(request,'ui/index.html', {"message": message})
         
     uploaded_file = request.FILES['document']
     df = pd.read_csv(io.BytesIO(uploaded_file.read()))
