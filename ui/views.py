@@ -41,6 +41,7 @@ def dashboard(request):
 
 
 def sentiment_analysis(request):
+    data = request.POST.get('data')
     data = ast.literal_eval(data)
     df = pd.DataFrame(data["data"])
     df.columns = ['Text']
