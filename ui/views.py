@@ -92,4 +92,5 @@ def emotional_traits(request):
             list2.append(categories[0])
     df["traits"] = list2
     data = df.to_dict('split')
-    return render(request,'ui/emotional_traits.html', {"data": data})
+    context = emotion_helper(df)
+    return render(request,'ui/emotional_traits.html', {"data": data, "context": context})

@@ -54,6 +54,7 @@ def senti_helper(df):
     print(context["data_pos"])
     return context
 
+
 def word_counter(df, sentiment):
     text = ''
     temp_list = []
@@ -82,3 +83,15 @@ def word_counter(df, sentiment):
     temp_df.columns = ['x', 'value', 'category']
     data2 = temp_df.to_dict('records')
     return data2
+
+
+def emotion_helper(df):
+    total_rows = df.shape[0]
+    uncategorized_rows = df[df['traits'] == 'NA'].shape[0]
+    categorized_rows = total_rows - uncategorized_rows
+    context = {
+        "total_rows": total_rows,
+        "categorized_rows": categorized_rows,
+        "uncategorized_rows": uncategorized_rows,
+    }
+    return context
