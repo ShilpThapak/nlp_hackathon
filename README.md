@@ -7,7 +7,7 @@
 
 1. Analyse reactions and emotions on social media to detect cyber bullying 
 
-1. Monitor company reputation on social media and improve due diligence
+2. Monitor company reputation on social media and improve due diligence
 
 
 **Key features –** 
@@ -34,6 +34,6 @@ In this part of the tool, the user can generate the keyword defining the emotion
 
 ﻿1. The input data will be uploaded through User Interface. (https://nlp--hackathon.herokuapp.com/)
 
-\2. ﻿Process the input data using expert.ai NLP APIs to get the sentiments and emotional traits of the input and transformed based on sentiments and emotional traits.
+2. ﻿Process the input data using expert.ai NLP APIs to get the sentiments and emotional traits of the input and transformed based on sentiments and emotional traits.
 
-\3. The transformed data will be represented to the dashboard.
+3. The transformed data will be represented to the dashboard.
