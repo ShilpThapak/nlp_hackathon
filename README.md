@@ -28,7 +28,7 @@ In this part of the tool, the user can generate the keyword defining the emotion
 
 
 
-**Process chart**
+**Process Flow**
 
 
 
