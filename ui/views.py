@@ -15,26 +15,33 @@ def index(request):
 
 
 def dashboard(request):
+    
     if request.method =='GET':
         message = "Please upload a file !!"
         return render(request,'ui/index.html')
     if request.method =='POST':
+        use_local_file = request.POST.get('use_local_file')
         if len(request.FILES) == 0:
-            message = "No file found!!"
-            return render(request,'ui/index.html', {"message": message})
+            if use_local_file == None:
+                message = "No file found!!"
+                return render(request,'ui/index.html', {"message": message})
 
         # print(request.FILES, request.FILES.get('document'))
-        filename = str(request.FILES.get('document'))
-        print(filename)
-        if filename[-4:] != '.csv':
-            message = "Only .csv files allowed !!"
-            return render(request,'ui/index.html', {"message": message})
+        if use_local_file != None:
+            path = './ui/media/data.csv'
+            df = pd.read_csv(path)
+        else:
+            filename = str(request.FILES.get('document'))
+            if filename[-4:] != '.csv':
+                message = "Only .csv files allowed !!"
+                return render(request,'ui/index.html', {"message": message})
         
-    uploaded_file = request.FILES['document']
-    df = pd.read_csv(io.BytesIO(uploaded_file.read()))
-    if len(df.columns) != 1:
-        message = "Please upload a file with one column only!"
-        return render(request,'ui/index.html', {"message": message})
+            uploaded_file = request.FILES['document']
+            df = pd.read_csv(io.BytesIO(uploaded_file.read()))
+
+            if len(df.columns) != 1:
+                message = "Please upload a file with one column only!"
+                return render(request,'ui/index.html', {"message": message})
     df.columns = ["Text"]
     # df = sentiment(df)
     data = df.to_dict('split')

@@ -32,7 +32,7 @@
             <div class="row align-items-start">
                 <div class="col"></div>
                 <div class="col-6">
-                    <img src="/static/ui/logo2.png" width="50%">
+                    <img src="/static/ui/logo2.png" width="40%">
                     <h1> Welcome to SentiMeter!</h1>
                     <hr>
                     {% if message %}
@@ -48,15 +48,21 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <div style="font-size: 100px; text-align: center; color: grey;">
+                            <div style="font-size: 80px; text-align: center; color: grey;">
                                 <i class="bi bi-upload"></i>
                             </div>
                             
 
-                            Upload a .csv file to get the setiment analysis.
+                            Upload a file to get the setiment analysis.
+                            <br>
+                            <small>
+                                - The file should have a .csv extension.
+                                <br>
+                                - The file should contain only one column.
+                            </small>
 
-                            <br> 
-                            <br> 
+                            <br>  
+                            <br>
 
                             <form method="post" enctype="multipart/form-data" action="/dashboard">
 
@@ -70,6 +76,23 @@
                                     <button class="btn btn-primary" type="submit">Upload</button>
                                 </div>
 
+                            </form>
+
+                            <br>
+
+                            OR
+
+                            <br>
+                            <br>
+
+                            <form method="post" enctype="multipart/form-data" action="/dashboard">
+                                {% csrf_token %}
+
+                                <input hidden name="use_local_file" value="1"></input>
+
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="submit">Run Sentimeter with a Sample File</button>
+                                </div>
                             </form>
 
                             <br> 
