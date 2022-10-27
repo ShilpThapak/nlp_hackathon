@@ -6,6 +6,7 @@ import io
 import os
 from expertai.nlapi.cloud.client import ExpertAiClient
 import ast
+from .helpers import *
 
 
 # Create your views here.
@@ -60,7 +61,8 @@ def sentiment_analysis(request):
 
     df['Sentiment score'] = list
     data = df.to_dict('split')
-    return render(request,'ui/sentiment_analysis.html', {"data": data})
+    context = senti_helper(df)
+    return render(request,'ui/sentiment_analysis.html', {"data": data, "context": context})
 
 
 def emotional_traits(request):
