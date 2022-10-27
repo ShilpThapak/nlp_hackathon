@@ -30,7 +30,7 @@
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 		
         <!-- LOADING STATIC JS  -->
-        <script src="/static/ui/dashboard.js"></script>
+        <!-- <script src="/static/ui/dashboard.js"></script> -->
         <style>
             body {
                 background-color: #f5f5f5;
@@ -44,41 +44,16 @@
             <div class="card-body">
                 <!-- <h5 class="card-title">File successfully uploaded. Please find the uploaded data below.</h5> -->
 
-                <div 
+                <!-- <div 
                     class="alert alert-success" 
                     role="alert"
                 >
                     File successfully uploaded. Please find the uploaded data below.
-                </div>
+                </div> -->
 
-                <br> 
+                <!-- <br>  -->
 
                 <table id="example" class="display" width="100%"></table>
-            </div>
-        </div>
-
-        <br>
-        <div style="text-align: center;">
-            <div class="btn-group">
-                <!-- <a href="#" class="btn btn-primary active" aria-current="page">Active link</a> -->
-                <form action="/sentiment_analysis" method="post">
-
-                    {% csrf_token %}
-                    <input hidden name="data" value="{{ data }}">
-                    <button type="submit" class="btn btn-primary btn-lg">Get Sentiment Analysis</button>
-                </form>
-
-                &nbsp;
-                
-                <form action="/emotional_traits" method="post">
-                    {% csrf_token %}
-                    <input hidden name="data" value="{{ data }}">
-                    <button type="submit" class="btn btn-primary btn-lg">Get Emotional Traits</button>
-                </form>
-<!-- 
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                <button type="button" class="btn btn-secondary btn-lg">Large button</button> -->
-                
             </div>
         </div>
     
