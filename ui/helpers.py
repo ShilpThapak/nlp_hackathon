@@ -19,6 +19,7 @@ def senti_helper(df):
 
     df['Sentiment'] = np.select(conditions, values)
 
+    mean_senti = round(float(df[["Sentiment score"]].mean()), 1)
     total_rows = df.shape[0]
     categorized_rows = total_rows
     uncategorized_rows = 0
@@ -33,6 +34,7 @@ def senti_helper(df):
     df_eng_neu = df[df['Sentiment']=='Neutral']
 
     context = {
+        "mean_senti": mean_senti,
         "total_rows": df.shape[0],
         "categorized_rows": df.shape[0],
         "uncategorized_rows": 0,

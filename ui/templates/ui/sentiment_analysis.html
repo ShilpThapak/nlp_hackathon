@@ -103,11 +103,29 @@
         <h2 class="m-3">Sentiment Analysis</h2>
 
         <div class="container-fluid text-center">
+            <div class="row p-3">
+                <div class="card">
+                    <div class="card-body">
+                        {% if context.mean_senti > 0 %}
+                            <h5 class="card-title">The overall sentiment of all the sentences is: <i class="bi bi-emoji-smile"></i> Positive (Score: {{context.mean_senti | safe}}) </h5>
+                        {% else %}
+                            <h5 class="card-title">The overall sentiment of all the sentences is: <i class="bi bi-emoji-frown"></i> Negative (Score: {{context.mean_senti | safe}})</h5>
+                        {% endif %}
+                        
+                        <!-- <h6 class="card-subtitle mb-2 text-muted">
+                            {{context.total_rows | safe}}
+                        </h6> -->
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
             <div class="row">
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Total Rows</h5>
+                            <h5 class="card-title">Total Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.total_rows | safe}}
                             </h6>
@@ -116,7 +134,7 @@
                     <br />
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Categorized Rows</h5>
+                            <h5 class="card-title"># of Categorized Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.categorized_rows | safe}}
                             </h6>
@@ -125,7 +143,7 @@
                     <br />
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Uncotegorized Rows</h5>
+                            <h5 class="card-title"># of Uncategorized Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.uncategorized_rows | safe}}
                             </h6>
@@ -135,7 +153,7 @@
                 <div class="col">
                     <div class="card m-0">
                         <div class="card-body">
-                            <h5 class="card-title">Positive Rows</h5>
+                            <h5 class="card-title"># of Positive Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.positive_rows | safe}}
                             </h6>
@@ -144,7 +162,7 @@
                     <br />
                     <div class="card m-0">
                         <div class="card-body">
-                            <h5 class="card-title">Negative Rows</h5>
+                            <h5 class="card-title"># of Negative Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.negative_rows | safe}}
                             </h6>
@@ -153,7 +171,7 @@
                     <br />
                     <div class="card m-0">
                         <div class="card-body">
-                            <h5 class="card-title">Neutral Rows</h5>
+                            <h5 class="card-title"># of Neutral Sentences</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.neutral_rows | safe}}
                             </h6>
@@ -172,7 +190,7 @@
                     <br />
                     <div class="card m-0">
                         <div class="card-body">
-                            <h5 class="card-title">Negative Percentages</h5>
+                            <h5 class="card-title">Negative Percentage</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.negative_percent | safe}} %
                             </h6>
