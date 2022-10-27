@@ -92,7 +92,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Total Sentences</h5>
+                            <h5 class="card-title">Total Sentences
+                                <i class="bi bi-info-circle"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Total sentences found in the data."
+                                ></i>
+                            </h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.total_rows | safe}}
                             </h6>
@@ -103,7 +109,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"># of Categorized Sentences</h5>
+                            <h5 class="card-title"># of Categorized Sentences
+                                <i class="bi bi-info-circle"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Number of sentences that can be divided into emotions like Angry or Happy."
+                                ></i>
+                            </h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.categorized_rows | safe}}
                             </h6>
@@ -114,7 +126,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"># of Uncategorized Sentences</h5>
+                            <h5 class="card-title"># of Uncategorized Sentences
+                                <i class="bi bi-info-circle"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Number of sentences that don't fit in any category"
+                                ></i>
+                            </h5>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 {{context.uncategorized_rows | safe}}
                             </h6>
@@ -165,6 +183,10 @@
                     ]
                 });
             });
+
+
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     
         </script>
     </body>
